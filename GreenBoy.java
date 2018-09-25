@@ -4,8 +4,12 @@ public class GreenBoy extends CalabashBrothers {
         myName = new String("四娃");
         myCamp = CAMP.CB;
         myColor = COLOR.green;
-        //myMount = MOUNT.LOTUS;
         myFamilyRank = 4;
+
+        if(!myMount.AskForOwner())
+            myMount.PickUp(myName,MOUNT.LOTUS);
+        else
+            System.out.println(myName + " can not pick up a mount!");
     }
     // my abilities...
 }

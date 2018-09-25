@@ -3,11 +3,14 @@ enum CAMP {CB, MO, NE}
 
 enum MOUNT {LOTUS, FOOT, UNKNOWN}
 
-public class Living {
+public abstract class Living {
     String myName;
     boolean isAlive;
     CAMP myCamp;
     Mount myMount;
+    {
+        myMount = new Mount();
+    }
     Living()
     {
         myName = new String("unknownName");

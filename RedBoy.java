@@ -1,11 +1,16 @@
 public class RedBoy extends CalabashBrothers {
+
     RedBoy()
     {
         myName = new String("大娃");
         myCamp = CAMP.CB;
         myColor = COLOR.red;
-        //myMount = MOUNT.LOTUS;
         myFamilyRank = 1;
+
+        if(!myMount.AskForOwner())
+            myMount.PickUp(myName,MOUNT.LOTUS);
+        else
+            System.out.println(myName + " can not pick up a mount!");
     }
     // my abilities...
 }
