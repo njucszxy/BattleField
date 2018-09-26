@@ -3,7 +3,7 @@ enum CAMP {CB, MO, NE}
 
 enum MOUNT {LOTUS, FOOT, UNKNOWN}
 
-public abstract class Living {
+public class Living {
     String myName;
     boolean isAlive;
     CAMP myCamp;
@@ -20,5 +20,9 @@ public abstract class Living {
     public void TellMyName()
     {
         System.out.println(myName);
+    }
+    public CAMP TellMyCamp()
+    {
+        return myCamp;
     }
 }
