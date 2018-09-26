@@ -1,3 +1,5 @@
+enum MOUNT {LOTUS, FOOT, UNKNOWN}
+
 public class Mount {
     String ownerName;
     MOUNT myType;
@@ -41,10 +43,11 @@ public class Mount {
     {
         return isUsed;
     }
-    public void MoveTo(int newRow, int newColumn)
+    public void MoveTo(int newRow, int newColumn,Land land)
     {
         rowPosition = newRow;
         columnPosition = newColumn;
+        land.SitHere(ownerName);
     }
     public int GetRowPosition()
     {

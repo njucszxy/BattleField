@@ -4,11 +4,11 @@ enum FormationType {Snake, Wing, Goose, Zig, Fish, Square, Moon, Arrow}
 
 public class BattleField {
     Living[] lives;
-    boolean[][] land;
+    Land[][] land;
     BattleField()
     {
         lives = new Living[20];
-        land = new boolean[10][10];
+        land = new Land[10][10];
 
         //CB
         lives[0] = new Grandpa();
@@ -25,11 +25,6 @@ public class BattleField {
         lives[9] = new Scorpion();
         for(int i = 10;i <= 15;i++)
             lives[i] = new Minions();
-
-        //Initialize Land
-        for(int i = 0;i < 10;i++)
-            for(int j = 0;j < 10;j++)
-                land[i][j] = false;
     }
 
     //General Formation
@@ -269,25 +264,71 @@ public class BattleField {
             case Square: SquareFormation(positionMap,camp);break;
             default: System.out.println("No Such Formation!");break;
         }
-        for(int i = 0;i < 10;i++)
+        if(camp == CAMP.CB)
         {
-            for(int j = 0;j < 10;j++)
-            {
-                if(positionMap[i][j] != -1)
-                {
-                    switch (positionMap[i][j])
-                    {
-                        case 1:break;
-                        case 2:break;
-                        case 3:break;
-                        case 4:break;
-                        case 5:break;
-                        case 6:break;
-                        case 7:break;
-                        default:break;
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if (positionMap[i][j] != -1) {
+                        switch (positionMap[i][j]) {
+                            case 1:lives[1].GoTo(i,j,land[i][j]);
+                                break;
+                            case 2:lives[2].GoTo(i,j,land[i][j]);
+                                break;
+                            case 3:lives[3].GoTo(i,j,land[i][j]);
+                                break;
+                            case 4:lives[4].GoTo(i,j,land[i][j]);
+                                break;
+                            case 5:lives[5].GoTo(i,j,land[i][j]);
+                                break;
+                            case 6:lives[6].GoTo(i,j,land[i][j]);
+                                break;
+                            case 7:lives[7].GoTo(i,j,land[i][j]);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
             }
         }
+        else if(camp == CAMP.MO)
+        {
+            int countMinions = 0;
+            for(int i = 0;i < 10;i++)
+            {
+                for(int j = 0;j < 10;j++)
+                {
+                    if(positionMap[i][j] != -1)
+                    {
+                        switch (positionMap[i][j])
+                        {
+                            case 1:lives[9].GoTo(i,j,land[i][j]); break;
+                            case 2:lives[10+countMinions].GoTo(i,j,land[i][j]); countMinions++; break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void ShowBattleField()
+    {
+        for(int i = 0;i < 10;i++)
+        {
+            for(int j = 0;j < 10;j++)
+            {
+                if(land[i][j].isUsedUp())
+                    System.out.print("*");
+                else
+                    System.out.print("_");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String []args)
+    {
+        BattleField bf = new BattleField();
+        bf.Formation(FormationType.Snake,CAMP.CB);
+        bf.Formation(FormationType.Fish,CAMP.MO);
+        bf.ShowBattleField();
     }
 }
