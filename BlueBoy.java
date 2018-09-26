@@ -7,7 +7,10 @@ public class BlueBoy extends CalabashBrothers {
         myFamilyRank = 6;
 
         if(!myMount.AskForOwner())
+        {
             myMount.PickUp(myName,MOUNT.LOTUS);
+            hasMount = true;
+        }
         else
             System.out.println(myName + " can not pick up a mount!");
     }

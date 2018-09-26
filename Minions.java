@@ -3,9 +3,13 @@ public class Minions extends Living {
     {
         myName = new String("小喽啰");
         myCamp = CAMP.MO;
+        myFamilyRank = 2;
 
         if(!myMount.AskForOwner())
+        {
             myMount.PickUp(myName,MOUNT.FOOT);
+            hasMount = true;
+        }
         else
             System.out.println(myName + " can not pick up a mount!");
     }
