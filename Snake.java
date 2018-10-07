@@ -7,7 +7,7 @@ public class Snake extends Living {
 
         if(!myMount.AskForOwner())
         {
-            myMount.PickUp(myName,MOUNT.FOOT);
+            myMount.PickUp(myName,MountType.FOOT);
             hasMount = true;
         }
         else

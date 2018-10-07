@@ -1,20 +1,20 @@
-enum MOUNT {LOTUS, FOOT, UNKNOWN}
+enum MountType {LOTUS, FOOT, UNKNOWN}
 
 public class Mount {
     String ownerName;
-    MOUNT myType;
+    MountType myType;
     int rowPosition;
     int columnPosition;
     boolean isUsed;
     Mount()
     {
         ownerName = new String("unknownName");
-        myType = MOUNT.UNKNOWN;
+        myType = MountType.UNKNOWN;
         rowPosition = -1;
         columnPosition = -1;
         isUsed = false;
     }
-    Mount(String name, MOUNT type)
+    Mount(String name, MountType type)
     {
         ownerName = name;
         myType = type;
@@ -22,7 +22,7 @@ public class Mount {
         columnPosition = -1;
         isUsed = true;
     }
-    public boolean PickUp(String name, MOUNT type)
+    public boolean PickUp(String name, MountType type)
     {
         if(!isUsed)
         {
@@ -47,7 +47,13 @@ public class Mount {
     {
         rowPosition = newRow;
         columnPosition = newColumn;
+
+        //System.out.println("Start");
+
+        //land.GetUserName();
         land.SitHere(ownerName);
+
+        //System.out.println("End");
     }
     public int GetRowPosition()
     {

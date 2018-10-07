@@ -28,7 +28,7 @@ public class Living {
     public void GoTo(int rowPosition,int columnPosition,Land land)
     {
         if(hasMount)
-            myMount.MoveTo(rowPosition,columnPosition,land);
+            myMount.MoveTo(rowPosition, columnPosition, land);
         else
             System.out.println("I don't have a mount!");
     }

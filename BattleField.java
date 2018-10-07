@@ -9,6 +9,9 @@ public class BattleField {
     {
         lives = new Living[20];
         land = new Land[10][10];
+        for(int i = 0;i < 10;i++)
+            for(int j = 0;j < 10;j++)
+                land[i][j] = new Land();
 
         //CB
         lives[0] = new Grandpa();
@@ -31,20 +34,28 @@ public class BattleField {
     void ZigFormation(int[][] positionMap, CAMP camp)
     {
         //Formation
-        int column = 0;
         if(camp == CAMP.CB)
-            column = 2;
+        {
+            positionMap[4][2] = 1;
+            positionMap[3][2] = 2;
+            positionMap[5][2] = 3;
+            positionMap[2][2] = 4;
+            positionMap[6][2] = 5;
+            positionMap[1][2] = 6;
+            positionMap[7][2] = 7;
+        }
         else if(camp == CAMP.MO)
-            column = 7;
+        {
+            positionMap[4][7] = 2;
+            positionMap[3][7] = 2;
+            positionMap[5][7] = 2;
+            positionMap[2][7] = 1;
+            positionMap[6][7] = 2;
+            positionMap[1][7] = 2;
+            positionMap[7][7] = 2;
+        }
         else
             System.out.println("Error CAMP!");
-        positionMap[4][column] = 1;
-        positionMap[3][column] = 2;
-        positionMap[5][column] = 3;
-        positionMap[2][column] = 4;
-        positionMap[6][column] = 5;
-        positionMap[1][column] = 6;
-        positionMap[7][column] = 7;
     }
     void WingFormation(int[][]positionMap,CAMP camp)
     {
@@ -61,13 +72,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 1;
+            positionMap[4][6] = 2;
             positionMap[3][7] = 2;
-            positionMap[5][7] = 3;
-            positionMap[2][8] = 4;
-            positionMap[6][8] = 5;
-            positionMap[1][9] = 6;
-            positionMap[7][9] = 7;
+            positionMap[5][7] = 1;
+            positionMap[2][8] = 2;
+            positionMap[6][8] = 2;
+            positionMap[1][9] = 2;
+            positionMap[7][9] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -87,13 +98,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][7] = 1;
+            positionMap[4][7] = 2;
             positionMap[3][6] = 2;
-            positionMap[5][8] = 3;
-            positionMap[2][6] = 4;
-            positionMap[6][8] = 5;
-            positionMap[1][5] = 6;
-            positionMap[7][9] = 7;
+            positionMap[5][8] = 2;
+            positionMap[2][6] = 1;
+            positionMap[6][8] = 2;
+            positionMap[1][5] = 2;
+            positionMap[7][9] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -113,13 +124,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 1;
+            positionMap[4][6] = 2;
             positionMap[4][7] = 2;
-            positionMap[3][7] = 3;
-            positionMap[5][7] = 4;
-            positionMap[4][8] = 5;
-            positionMap[2][8] = 6;
-            positionMap[6][8] = 7;
+            positionMap[3][7] = 2;
+            positionMap[5][7] = 1;
+            positionMap[4][8] = 2;
+            positionMap[2][8] = 2;
+            positionMap[6][8] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -139,13 +150,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[3][6] = 1;
+            positionMap[3][6] = 2;
             positionMap[5][6] = 2;
-            positionMap[2][7] = 3;
-            positionMap[6][7] = 4;
-            positionMap[3][8] = 5;
-            positionMap[5][8] = 6;
-            positionMap[4][9] = 7;
+            positionMap[2][7] = 2;
+            positionMap[6][7] = 1;
+            positionMap[3][8] = 2;
+            positionMap[5][8] = 2;
+            positionMap[4][9] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -165,13 +176,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][7] = 1;
+            positionMap[4][7] = 2;
             positionMap[3][7] = 2;
-            positionMap[5][7] = 3;
-            positionMap[2][6] = 4;
-            positionMap[6][6] = 5;
-            positionMap[1][5] = 6;
-            positionMap[7][5] = 7;
+            positionMap[5][7] = 2;
+            positionMap[2][6] = 1;
+            positionMap[6][6] = 2;
+            positionMap[1][5] = 2;
+            positionMap[7][5] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -191,13 +202,13 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 1;
+            positionMap[4][6] = 2;
             positionMap[4][7] = 2;
-            positionMap[3][7] = 3;
-            positionMap[5][7] = 4;
-            positionMap[2][8] = 5;
-            positionMap[4][8] = 6;
-            positionMap[1][8] = 7;
+            positionMap[3][7] = 2;
+            positionMap[5][7] = 1;
+            positionMap[2][8] = 2;
+            positionMap[4][8] = 2;
+            positionMap[1][8] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -237,8 +248,15 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            for(int i = 0;i < 7;i++)
-                positionMap[1+i][7] = queue[i];
+            //for(int i = 0;i < 7;i++)
+            //    positionMap[1+i][7] = queue[i];
+            positionMap[1][7] = 2;
+            positionMap[2][7] = 2;
+            positionMap[3][7] = 2;
+            positionMap[4][7] = 1;
+            positionMap[5][7] = 2;
+            positionMap[6][7] = 2;
+            positionMap[7][7] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -302,8 +320,8 @@ public class BattleField {
                     {
                         switch (positionMap[i][j])
                         {
-                            case 1:lives[9].GoTo(i,j,land[i][j]); break;
-                            case 2:lives[10+countMinions].GoTo(i,j,land[i][j]); countMinions++; break;
+                            case 1:lives[9].GoTo(i,j,land[i][j]);break;
+                            case 2:lives[10+countMinions].GoTo(i,j,land[i][j]); countMinions++;break;
                         }
                     }
                 }

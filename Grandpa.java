@@ -9,7 +9,7 @@ public class Grandpa extends Living {
 
         if(!myMount.AskForOwner())
         {
-            myMount.PickUp(myName,MOUNT.LOTUS);
+            myMount.PickUp(myName,MountType.LOTUS);
             hasMount = true;
         }
         else
