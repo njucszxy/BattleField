@@ -36,21 +36,21 @@ public class BattleField {
         //Formation
         if(camp == CAMP.CB)
         {
-            positionMap[4][2] = 1;
+            positionMap[4][3] = 1;
             positionMap[3][2] = 2;
             positionMap[5][2] = 3;
-            positionMap[2][2] = 4;
-            positionMap[6][2] = 5;
+            positionMap[2][3] = 4;
+            positionMap[6][3] = 5;
             positionMap[1][2] = 6;
             positionMap[7][2] = 7;
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][7] = 2;
+            positionMap[4][8] = 1;
             positionMap[3][7] = 2;
             positionMap[5][7] = 2;
-            positionMap[2][7] = 1;
-            positionMap[6][7] = 2;
+            positionMap[2][8] = 2;
+            positionMap[6][8] = 2;
             positionMap[1][7] = 2;
             positionMap[7][7] = 2;
         }
@@ -72,9 +72,9 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 2;
+            positionMap[4][6] = 1;
             positionMap[3][7] = 2;
-            positionMap[5][7] = 1;
+            positionMap[5][7] = 2;
             positionMap[2][8] = 2;
             positionMap[6][8] = 2;
             positionMap[1][9] = 2;
@@ -98,10 +98,10 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][7] = 2;
+            positionMap[4][7] = 1;
             positionMap[3][6] = 2;
             positionMap[5][8] = 2;
-            positionMap[2][6] = 1;
+            positionMap[2][6] = 2;
             positionMap[6][8] = 2;
             positionMap[1][5] = 2;
             positionMap[7][9] = 2;
@@ -124,10 +124,10 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 2;
+            positionMap[4][6] = 1;
             positionMap[4][7] = 2;
             positionMap[3][7] = 2;
-            positionMap[5][7] = 1;
+            positionMap[5][7] = 2;
             positionMap[4][8] = 2;
             positionMap[2][8] = 2;
             positionMap[6][8] = 2;
@@ -153,10 +153,10 @@ public class BattleField {
             positionMap[3][6] = 2;
             positionMap[5][6] = 2;
             positionMap[2][7] = 2;
-            positionMap[6][7] = 1;
+            positionMap[6][7] = 2;
             positionMap[3][8] = 2;
             positionMap[5][8] = 2;
-            positionMap[4][9] = 2;
+            positionMap[4][9] = 1;
         }
         else
             System.out.println("Error CAMP!");
@@ -176,10 +176,10 @@ public class BattleField {
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][7] = 2;
+            positionMap[4][7] = 1;
             positionMap[3][7] = 2;
             positionMap[5][7] = 2;
-            positionMap[2][6] = 1;
+            positionMap[2][6] = 2;
             positionMap[6][6] = 2;
             positionMap[1][5] = 2;
             positionMap[7][5] = 2;
@@ -198,17 +198,17 @@ public class BattleField {
             positionMap[5][2] = 4;
             positionMap[2][1] = 5;
             positionMap[4][1] = 6;
-            positionMap[1][1] = 7;
+            positionMap[6][1] = 7;
         }
         else if(camp == CAMP.MO)
         {
-            positionMap[4][6] = 2;
+            positionMap[4][6] = 1;
             positionMap[4][7] = 2;
             positionMap[3][7] = 2;
-            positionMap[5][7] = 1;
+            positionMap[5][7] = 2;
             positionMap[2][8] = 2;
             positionMap[4][8] = 2;
-            positionMap[1][8] = 2;
+            positionMap[6][8] = 2;
         }
         else
             System.out.println("Error CAMP!");
@@ -335,9 +335,9 @@ public class BattleField {
             for(int j = 0;j < 10;j++)
             {
                 if(land[i][j].isUsedUp())
-                    System.out.print("*");
+                    land[i][j].GetSimpleName();
                 else
-                    System.out.print("_");
+                    System.out.print(" ");
             }
             System.out.println();
         }
@@ -345,7 +345,7 @@ public class BattleField {
     public static void main(String []args)
     {
         BattleField bf = new BattleField();
-        bf.Formation(FormationType.Snake,CAMP.CB);
+        bf.Formation(FormationType.Arrow,CAMP.CB);
         bf.Formation(FormationType.Fish,CAMP.MO);
         bf.ShowBattleField();
     }
