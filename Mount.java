@@ -43,7 +43,19 @@ public class Mount {
     {
         return isUsed;
     }
-    public void MoveTo(int newRow, int newColumn,Land land)
+    public void EnterBattleField(Land[][] land)
+    {
+        for(int i = 10;i < 20;i++)
+            for(int j = 10;j < 20;j++)
+                if(!land[i][j].isUsedUp())
+                {
+                    rowPosition = i;
+                    columnPosition = j;
+                    land[i][j].SitHere(ownerName);
+                    return;
+                }
+    }
+    public void MoveTo(int newRow, int newColumn,Land oldLand,Land newLand)
     {
         rowPosition = newRow;
         columnPosition = newColumn;
@@ -51,7 +63,8 @@ public class Mount {
         //System.out.println("Start");
 
         //land.GetUserName();
-        land.SitHere(ownerName);
+        oldLand.GoAway();
+        newLand.SitHere(ownerName);
 
         //System.out.println("End");
     }

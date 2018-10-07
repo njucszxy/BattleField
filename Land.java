@@ -15,6 +15,11 @@ public class Land {
         else
             System.out.println("There is someone here!");
     }
+    public void GoAway()
+    {
+        isUsed = false;
+        userName = new String("unknownName");
+    }
     public boolean isUsedUp()
     {
         return isUsed;

@@ -25,10 +25,22 @@ public class Living {
     {
         return myCamp;
     }
-    public void GoTo(int rowPosition,int columnPosition,Land land)
+    public int TellMyRowPosition()
+    {
+        return myMount.GetRowPosition();
+    }
+    public int TellMyColumnPosition()
+    {
+        return myMount.GetColumnPosition();
+    }
+    public void SitInBattleField(Land[][] land)
+    {
+        myMount.EnterBattleField(land);
+    }
+    public void GoTo(int rowPosition,int columnPosition,Land oldLand,Land newLand)
     {
         if(hasMount)
-            myMount.MoveTo(rowPosition, columnPosition, land);
+            myMount.MoveTo(rowPosition, columnPosition, oldLand, newLand);
         else
             System.out.println("I don't have a mount!");
     }
