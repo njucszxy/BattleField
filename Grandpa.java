@@ -1,5 +1,4 @@
 public class Grandpa extends Living {
-    int myFamilyRank;
     Grandpa()
     {
         myName = new String("爷爷");
